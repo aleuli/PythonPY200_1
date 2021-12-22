@@ -19,7 +19,7 @@ class Node:
         return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
 
     def __str__(self) -> str:
-        ...  # TODO метод должен возвращать значение текущего узла
+        return f"Значение которое помещено в узел{self.value}.Следующий узел если он есть {self.next}" # TODO метод должен возвращать значение текущего узла
 
     def is_valid(self, node: Any) -> None:
         if not isinstance(node, (type(None), Node)):
