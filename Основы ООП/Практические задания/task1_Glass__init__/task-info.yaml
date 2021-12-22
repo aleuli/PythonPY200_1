@@ -1,5 +1,8 @@
 type: theory
 files:
+- name: __init__.py
+  visible: false
+  learner_created: false
 - name: main.py
   visible: true
   placeholders:
@@ -62,9 +65,8 @@ files:
 
         # TODO попробовать инициализировать не корректные объекты
   learner_created: false
-- name: __init__.py
-  visible: false
-  learner_created: false
 status: Solved
+feedback:
+  time: Wed, 22 Dec 2021 15:13:50 UTC
 record: -1
 post_submission_on_open: true
