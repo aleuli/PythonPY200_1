@@ -8,7 +8,7 @@ files:
     placeholder_text: '...  # TODO метод должен возвращать строку, по которой можно
       инициализировать экземпляр класса'
     initial_state:
-      length: 94
+      length: 153
       offset: 315
     initialized_from_dependency: false
     selected: true
@@ -45,5 +45,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Wed, 22 Dec 2021 15:56:21 UTC
+  time: Thu, 23 Dec 2021 16:31:08 UTC
 record: -1

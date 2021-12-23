@@ -7,7 +7,7 @@ files:
     length: 15
     placeholder_text: '...  # TODO инициализировать ещё один стакан'
     initial_state:
-      length: 44
+      length: 15
       offset: 724
     initialized_from_dependency: false
     selected: true
@@ -17,8 +17,8 @@ files:
     length: 47
     placeholder_text: '...)  # TODO распечатать атрибуты экземпляра glass2'
     initial_state:
-      length: 51
-      offset: 779
+      length: 47
+      offset: 750
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -27,8 +27,8 @@ files:
     length: 29
     placeholder_text: '#  TODO доливаем воды в первый стакан'
     initial_state:
-      length: 37
-      offset: 882
+      length: 29
+      offset: 849
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -37,8 +37,8 @@ files:
     length: 23
     placeholder_text: '#  TODO сравнить id объектов'
     initial_state:
-      length: 28
-      offset: 1041
+      length: 23
+      offset: 1000
     initialized_from_dependency: false
     selected: true
     status: Solved

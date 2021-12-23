@@ -7,7 +7,7 @@ files:
     length: 45
     placeholder_text: '...  # TODO добавить атрибуты'
     initial_state:
-      length: 29
+      length: 45
       offset: 371
     initialized_from_dependency: false
     selected: true
@@ -19,8 +19,8 @@ files:
     length: 17
     placeholder_text: '...  # TODO вернуть значение узла'
     initial_state:
-      length: 33
-      offset: 506
+      length: 17
+      offset: 522
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -29,7 +29,7 @@ files:
     length: 65
     placeholder_text: '# TODO добавить метод get_next'
     initial_state:
-      length: 30
+      length: 65
       offset: 545
     initialized_from_dependency: false
     selected: true
@@ -42,8 +42,8 @@ files:
     length: 86
     placeholder_text: '# TODO с помощью метода распечатать значение первого узла'
     initial_state:
-      length: 57
-      offset: 691
+      length: 86
+      offset: 726
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -53,8 +53,8 @@ files:
     placeholder_text: '# TODO  с помощью метода распечатать следующий узел второго
       узла'
     initial_state:
-      length: 64
-      offset: 753
+      length: 93
+      offset: 817
     initialized_from_dependency: false
     selected: true
     status: Solved

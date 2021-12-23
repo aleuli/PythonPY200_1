@@ -3,23 +3,23 @@ files:
 - name: task.py
   visible: true
   placeholders:
-  - offset: 1026
-    length: 30
+  - offset: 1021
+    length: 0
     placeholder_text: '...  # TODO реализовать функцию'
     initial_state:
-      length: 31
-      offset: 1025
+      length: 30
+      offset: 1026
     initialized_from_dependency: false
     selected: true
     status: Solved
     encrypted_possible_answer: left_node.set_next(right_node)
-  - offset: 1141
+  - offset: 1106
     length: 37
     placeholder_text: '...  # TODO связать между собой два узла с помощью функции
       linked_nodes'
     initial_state:
-      length: 71
-      offset: 1142
+      length: 37
+      offset: 1141
     initialized_from_dependency: false
     selected: true
     status: Solved

@@ -10,8 +10,8 @@ files:
     length: 85
     placeholder_text: '#  TODO инициализировать объект "Стакан"'
     initial_state:
-      length: 40
-      offset: 144
+      length: 85
+      offset: 292
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -31,8 +31,8 @@ files:
     length: 55
     placeholder_text: '...  # TODO инициализировать два объекта типа Glass'
     initial_state:
-      length: 51
-      offset: 218
+      length: 55
+      offset: 411
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -43,8 +43,8 @@ files:
     length: 133
     placeholder_text: '# TODO попробовать инициализировать не корректные объекты'
     initial_state:
-      length: 57
-      offset: 275
+      length: 133
+      offset: 472
     initialized_from_dependency: false
     selected: true
     status: Solved

@@ -7,7 +7,7 @@ files:
     length: 148
     placeholder_text: '...  # TODO метод должен возвращать значение текущего узла'
     initial_state:
-      length: 58
+      length: 148
       offset: 628
     initialized_from_dependency: false
     selected: true
@@ -19,7 +19,7 @@ files:
       в списке'
     initial_state:
       length: 68
-      offset: 1325
+      offset: 1415
     initialized_from_dependency: false
     selected: true
     status: Failed

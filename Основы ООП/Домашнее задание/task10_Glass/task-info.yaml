@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 25
-    length: 143
+    length: 348
     placeholder_text: '# TODO написать класс Glass согласно условию'
     initial_state:
       length: 44
@@ -53,5 +53,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Wed, 22 Dec 2021 17:56:06 UTC
+  time: Thu, 23 Dec 2021 17:21:17 UTC
 record: -1

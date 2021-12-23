@@ -12,65 +12,65 @@ files:
 - name: task.py
   visible: true
   placeholders:
-  - offset: 475
+  - offset: 762
     length: 151
     placeholder_text: '# TODO установить значение следующего узла с помощью метода
       set_next'
     initial_state:
-      length: 68
-      offset: 399
+      length: 151
+      offset: 475
     initialized_from_dependency: false
     selected: true
     status: Solved
     encrypted_possible_answer: |-
       self.next = None
               self.set_next(next_)
-  - offset: 761
+  - offset: 1048
     length: 158
     placeholder_text: |-
       # TODO метод проверки корректности связываемого узла
               ...
     initial_state:
-      length: 64
-      offset: 602
+      length: 158
+      offset: 761
     initialized_from_dependency: false
     selected: true
     status: Solved
     encrypted_possible_answer: |-
       if not isinstance(node, (type(None), Node)):
                   raise TypeError
-  - offset: 987
+  - offset: 1274
     length: 109
     placeholder_text: |-
       # TODO метод должен проверять корректность узла и устанавливать значение атрибуту next
               ...
     initial_state:
-      length: 98
-      offset: 740
+      length: 109
+      offset: 987
     initialized_from_dependency: false
     selected: true
     status: Solved
     encrypted_possible_answer: |-
       self.is_valid(next_)
               self.next = next_
-  - offset: 1130
+  - offset: 1417
     length: 20
     placeholder_text: '# TODO инициализируйте два узла с любыми значеними'
     initial_state:
-      length: 50
-      offset: 872
+      length: 20
+      offset: 1130
     initialized_from_dependency: false
     selected: true
     status: Solved
     encrypted_possible_answer: |-
       first_node = Node(1)
           second_node = Node(2)
-  - offset: 1215
+  - offset: 1502
     length: 36
     placeholder_text: '# TODO свяжите первый узел со вторым'
     initial_state:
       length: 36
-      offset: 928
+      offset: 1215
     initialized_from_dependency: false
     selected: false
     status: Solved

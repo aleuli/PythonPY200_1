@@ -26,7 +26,7 @@ files:
     placeholder_text: '...  # TODO с помощью list comprehension сделать список узлов
       со значениями от 0 до 9'
     initial_state:
-      length: 85
+      length: 113
       offset: 544
     initialized_from_dependency: false
     selected: true
@@ -36,8 +36,8 @@ files:
     length: 49
     placeholder_text: '# TODO распечатать значения узлов'
     initial_state:
-      length: 33
-      offset: 657
+      length: 49
+      offset: 685
     initialized_from_dependency: false
     selected: true
     status: Solved
