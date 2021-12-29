@@ -66,9 +66,16 @@ class LinkedList:
         node.value = value
 
     def __delitem__(self, index: int):
-        ...  # TODO проверка индекса
+        if not isinstance(index, int):
+            raise TypeError
+        if not 0 <= index < self.len:
+            raise IndexError
 
-        ...  # TODO алгоритм удаления
+        if index == 0:
+            self.head = self.head.next
+        elif index == self.
+
+
 
     def to_list(self) -> list:
         return [linked_list_value for linked_list_value in self]

@@ -25,5 +25,8 @@ files:
     <class '__main__.Glass'>
     True
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 29 Dec 2021 15:14:15 UTC
 record: -1
