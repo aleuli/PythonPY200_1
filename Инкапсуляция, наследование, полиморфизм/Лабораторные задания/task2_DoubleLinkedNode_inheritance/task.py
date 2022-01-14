@@ -37,7 +37,7 @@ class DoubleLinkedNode(Node):
 
     """Класс, который описывает узел двусвязного списка. """
 
-    def __init__(self, value, next_, prev):
+    def __init__(self, value, next_=None, prev=None):
         super().__init__(value, next_)
         self.prev = prev
 
@@ -49,28 +49,14 @@ class DoubleLinkedNode(Node):
         # return f"DoubleLinkedNode({self.value}, {self.next_}, {None})" if self.prev is None \
         #     else f"DoubleLinkedNode({self.value}), DoubleLinkedNode({self.next_}, DoubleLinkedNode({self.prev})"
 
-    def __str__(self) -> str:
-        super().__str__()
-        return str(self.value, self.next)
-
-    def is_valid(self, dnode: Any) -> None:
-        if not isinstance(dnode, (type(None), DoubleLinkedNode)):
-            raise TypeError
-
-
-
-
-
-
-
-
-
-
-
-
-
     #todo getter and setter for prev
     #repr переопределяем
     # str наследуем
     # is_valid переопределяем
     # setter and getter наследуем
+
+
+first_node = "first"
+second_node = "second"
+presecond_node = "presecond_node"
+
