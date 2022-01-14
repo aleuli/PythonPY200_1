@@ -1,5 +1,21 @@
 type: edu
 files:
+- name: task.py
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 1205
+    placeholder_text: '# TODO class Date'
+    initial_state:
+      length: 17
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: |
+      # TODO
+  text: '# TODO class Date'
+  learner_created: false
 - name: tests/test_task.py
   visible: false
   text: |
@@ -17,24 +33,5 @@ files:
 - name: tests/__init__.py
   visible: false
   learner_created: false
-- name: task.py
-  visible: true
-  placeholders:
-  - offset: 0
-    length: 17
-    placeholder_text: '# TODO class Date'
-    initial_state:
-      length: 17
-      offset: 0
-    initialized_from_dependency: false
-    selected: false
-    status: Solved
-    encrypted_possible_answer: |
-      # TODO
-  text: '# TODO class Date'
-  learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 29 Dec 2021 15:05:25 UTC
+status: Unchecked
 record: -1
