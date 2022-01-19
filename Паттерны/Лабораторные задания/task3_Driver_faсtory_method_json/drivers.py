@@ -41,7 +41,25 @@ class SimpleFileDriver(IStructureDriver):
         return f"{self.__class__.__name__}(\"{self.filename}\")"
 
 
-# TODO
+class JsonFileDriver():
+
+    def __init__(self, filename):
+        self.filename = None
+        self.is_valid(filename)
+
+    @staticmethod
+    def is_valid(file):
+        if not isinstance(file, list):
+            raise TypeError
+
+    def read(self):
+        with open(self.filename) as f:
+            return [line for line in f]
+
+    def write(self, data):
+        with open()
+
+
 
 
 if __name__ == '__main__':
