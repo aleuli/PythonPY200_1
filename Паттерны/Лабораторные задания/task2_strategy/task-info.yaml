@@ -11,7 +11,7 @@ files:
       offset: 368
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @property
           def driver(self):
@@ -28,7 +28,7 @@ files:
       offset: 827
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: SimpleFileFactoryMethod.get_driver()
   - offset: 918
     length: 43
@@ -38,7 +38,7 @@ files:
       offset: 918
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: JsonFileDriverFactoryMethod.get_driver()
   text: |
     from typing import Iterable
@@ -225,7 +225,7 @@ files:
   visible: true
   placeholders:
   - offset: 1172
-    length: 6
+    length: 379
     placeholder_text: '# TODO'
     dependency:
       section: Паттерны
@@ -237,9 +237,9 @@ files:
     initial_state:
       length: 6
       offset: 1172
-    initialized_from_dependency: false
+    initialized_from_dependency: true
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       class JsonFileDriver(IStructureDriver):
           def __init__(self, json_filename):
@@ -319,7 +319,7 @@ files:
   visible: true
   placeholders:
   - offset: 641
-    length: 1
+    length: 51
     placeholder_text: '#'
     dependency:
       section: Паттерны
@@ -331,9 +331,9 @@ files:
     initial_state:
       length: 1
       offset: 641
-    initialized_from_dependency: false
+    initialized_from_dependency: true
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       class JsonFileDriverFactoryMethod(DriverFactoryMethod):
           DEFAULT_NAME = 'untitled.json'
@@ -392,6 +392,6 @@ files:
     8
     9
   learner_created: false
-status: Unchecked
+status: Solved
 record: -1
 post_submission_on_open: true
