@@ -4,22 +4,22 @@ files:
   visible: true
   placeholders:
   - offset: 628
-    length: 158
+    length: 125
     placeholder_text: '...  # TODO метод должен возвращать значение текущего узла'
     initial_state:
-      length: 148
+      length: 125
       offset: 628
     initialized_from_dependency: false
     selected: true
     status: Failed
     encrypted_possible_answer: return str(self.value)
-  - offset: 1405
-    length: 68
+  - offset: 1297
+    length: 260
     placeholder_text: '# TODO реализуйте алгоритм, который свяжет между собой узлы
       в списке'
     initial_state:
-      length: 68
-      offset: 1415
+      length: 260
+      offset: 1297
     initialized_from_dependency: false
     selected: true
     status: Failed
@@ -91,11 +91,9 @@ files:
 status: Failed
 feedback:
   message: Incorrect
-  time: Sun, 26 Dec 2021 08:54:22 UTC
+  time: Tue, 28 Dec 2021 18:27:35 UTC
   expected: |
     [Node(0, None), Node(1, None), Node(2, None), Node(3, None), Node(4, None)]
     [Node(0, Node(1)), Node(1, Node(2)), Node(2, Node(3)), Node(3, Node(4)), Node(4, None)]
-  actual: |
-    [Node(0, None), Node(1, None), Node(2, None), Node(3, None), Node(4, None)]
-    [Node(0, None), Node(1, None), Node(2, None), Node(3, None), Node(4, None)]
+  actual: <no output>
 record: -1

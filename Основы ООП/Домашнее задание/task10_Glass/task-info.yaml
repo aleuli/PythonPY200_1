@@ -7,8 +7,8 @@ files:
     length: 348
     placeholder_text: '# TODO написать класс Glass согласно условию'
     initial_state:
-      length: 44
-      offset: 0
+      length: 348
+      offset: 25
     initialized_from_dependency: false
     selected: true
     status: Solved

@@ -24,14 +24,12 @@ class Rectangle(Figure):
 class Circle(Figure):
     """ Производный класс. Круг. """
 
-    PI = 3.14
-
     def __init__(self, r):
         self.r = r
 
     def area(self):
         print(f"Вызван метод класса {self.__class__.__name__}")
-        return self.PI * self.r ** 2
+        return math.pi * self.r ** 2
 
 
 if __name__ == "__main__":

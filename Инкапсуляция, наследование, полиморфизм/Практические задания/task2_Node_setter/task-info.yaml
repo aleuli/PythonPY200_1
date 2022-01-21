@@ -3,8 +3,8 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 390
-    length: 27
+  - offset: 399
+    length: 79
     placeholder_text: |-
       # TODO заменить на вызов setter
               self.next = None
@@ -16,8 +16,8 @@ files:
     selected: true
     status: Solved
     encrypted_possible_answer: 'self.next = next_  # вызовется setter'
-  - offset: 814
-    length: 159
+  - offset: 808
+    length: 165
     placeholder_text: |-
       # TODO заменить на getter и setter
           def set_next(self, next_: Optional["Node"] = None) -> None:
@@ -96,5 +96,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Fri, 14 Jan 2022 16:31:10 UTC
+  time: Sun, 16 Jan 2022 19:02:37 UTC
 record: -1

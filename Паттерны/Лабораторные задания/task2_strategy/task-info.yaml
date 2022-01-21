@@ -4,13 +4,13 @@ files:
   visible: true
   placeholders:
   - offset: 368
-    length: 157
+    length: 44
     placeholder_text: '# TODO свойство для driver (getter + setter)'
     initial_state:
       length: 44
       offset: 368
     initialized_from_dependency: false
-    selected: true
+    selected: false
     status: Solved
     encrypted_possible_answer: |-
       @property
@@ -20,24 +20,24 @@ files:
           @driver.setter
           def driver(self, driver: IStructureDriver):
               self._driver = driver
-  - offset: 940
-    length: 36
+  - offset: 827
+    length: 45
     placeholder_text: '...  # TODO инициализировать SimpleFileDriver'
     initial_state:
       length: 45
       offset: 827
     initialized_from_dependency: false
-    selected: true
+    selected: false
     status: Solved
     encrypted_possible_answer: SimpleFileFactoryMethod.get_driver()
-  - offset: 1021
-    length: 41
+  - offset: 918
+    length: 43
     placeholder_text: '...  # TODO инициализировать JsonFileDriver'
     initial_state:
       length: 43
       offset: 918
     initialized_from_dependency: false
-    selected: true
+    selected: false
     status: Solved
     encrypted_possible_answer: JsonFileDriverFactoryMethod.get_driver()
   text: |
@@ -225,7 +225,7 @@ files:
   visible: true
   placeholders:
   - offset: 1172
-    length: 583
+    length: 6
     placeholder_text: '# TODO'
     dependency:
       section: Паттерны
@@ -237,8 +237,8 @@ files:
     initial_state:
       length: 6
       offset: 1172
-    initialized_from_dependency: true
-    selected: true
+    initialized_from_dependency: false
+    selected: false
     status: Solved
     encrypted_possible_answer: |-
       class JsonFileDriver(IStructureDriver):
@@ -319,7 +319,7 @@ files:
   visible: true
   placeholders:
   - offset: 641
-    length: 51
+    length: 1
     placeholder_text: '#'
     dependency:
       section: Паттерны
@@ -331,7 +331,7 @@ files:
     initial_state:
       length: 1
       offset: 641
-    initialized_from_dependency: true
+    initialized_from_dependency: false
     selected: false
     status: Solved
     encrypted_possible_answer: |-
@@ -393,7 +393,5 @@ files:
     9
   learner_created: false
 status: Solved
-feedback:
-  time: Wed, 19 Jan 2022 17:56:13 UTC
 record: -1
 post_submission_on_open: true

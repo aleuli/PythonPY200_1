@@ -7,8 +7,8 @@ files:
     length: 0
     placeholder_text: '...  # TODO реализовать функцию'
     initial_state:
-      length: 30
-      offset: 1026
+      length: 0
+      offset: 1021
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -19,7 +19,7 @@ files:
       linked_nodes'
     initial_state:
       length: 37
-      offset: 1141
+      offset: 1106
     initialized_from_dependency: false
     selected: true
     status: Solved
@@ -85,5 +85,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Wed, 22 Dec 2021 17:17:58 UTC
+  time: Sun, 26 Dec 2021 16:21:52 UTC
 record: -1

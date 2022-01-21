@@ -66,7 +66,5 @@ files:
         # TODO попробовать инициализировать не корректные объекты
   learner_created: false
 status: Solved
-feedback:
-  time: Wed, 22 Dec 2021 15:31:21 UTC
 record: -1
 post_submission_on_open: true
