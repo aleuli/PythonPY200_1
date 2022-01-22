@@ -96,10 +96,32 @@ class LinkedList:
         return f"{self.to_list()}"
 
     def insert(self, index: int, value: Any) -> None:
-        ...  # TODO реализовать алгоритм вставки элемента
+
+        """ Добавляет значение в список по указанному индексу """
+
+        print("Вызван метод insert")
+
+        if not isinstance(index, int):
+            raise TypeError
+
+        if index < 0:
+            raise IndexError
+
+        if index > self.len:
+            self.append(value)
+
+        if 0 <= index < self.len:
+            # append_node = Node(value)
+            # print(append_node)
+            # current_node = self.step_by_step_on_nodes(index)
+            # print(current_node)
+            # self.linked_nodes(append_node, current_node)
+            self.head = self.step_by_step_on_nodes(index)
+            tail =
 
 
 if __name__ == '__main__':
+
     list_ = [1, 2, 3]
     linked_list = LinkedList(list_)
     print(linked_list)
@@ -110,9 +132,9 @@ if __name__ == '__main__':
     linked_list.insert(len(linked_list), len(linked_list))
     print(linked_list)
 
-    linked_list.insert(100, 100)
-    print(linked_list)
-
-    linked_list.insert(2, "wow")
-    print(linked_list)
-    print(linked_list[2] == "wow")
+    # linked_list.insert(100, 100)
+    # print(linked_list)
+    #
+    # linked_list.insert(2, "wow")
+    # print(linked_list)
+    # print(linked_list[2] == "wow")

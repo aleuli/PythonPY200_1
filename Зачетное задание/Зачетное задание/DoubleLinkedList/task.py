@@ -1,5 +1,7 @@
 from collections.abc import MutableSequence
+
 from typing import Any, Iterable, Optional
+
 from node import Node
 
 
@@ -110,54 +112,57 @@ class LinkedList(MutableSequence):
 
         return self.len
 
-    def insert(self, index: int, value) -> None:
+    def insert(self, index: int, value: Any) -> None:
 
-        """ вставляет элемент в список по указанному индексу """
+        """ Добавляет значение в список по указанному индексу """
+
+        print("Вызван метод insert")
 
         if not isinstance(index, int):
-            raise TypeError("Ошибка типа")
+            raise TypeError
 
-        if not 0 <= index < self.len:
-            raise IndexError("Ошибка индекса")
+        if index < 0:
+            raise IndexError
 
+        if index > self.len:
+            self.append(value)
 
-        if index == 0
-            ...
-            ...
-
-        current_node = self.step_by_step_on_nodes(index - 1)
-        current_node.value = current_node
-        current_node.next = value
-
+        if 0 <= index < self.len:
+            append_node = Node(value)
+            current_node = self.step_by_step_on_nodes(index)
+            self.linked_nodes(append_node, current_node)
 
 
+if __name__ == '__main__':
+
+    list_ = [1, 2, 3]
+    linked_list = LinkedList(list_)
+    print(linked_list)
+
+    linked_list.insert(0, 0)
+    print(linked_list)
+
+    linked_list.insert(len(linked_list), len(linked_list))
+    print(linked_list)
+
+    # linked_list.insert(100, 100)
+    # print(linked_list)
+    #
+    # linked_list.insert(2, "wow")
+    # print(linked_list)
+    # print(linked_list[2] == "wow")
 
 
 
 
 
-class DoubleLinkedList(LinkedList):
-    ...
 
 
-if __name__ == "__main__":
-    ...
-
-#     def to_list(self) -> list:
-#         return [linked_list_value for linked_list_value in self]
 #
-#     def __repr__(self) -> str:
-#         return f"{self.__class__.__name__}({self.to_list()})"
+# class DoubleLinkedList(LinkedList):
+#     ...
 #
-#     def __str__(self) -> str:
-#         return f"{self.to_list()}"
 #
-#     def clear(self):
-#         self.head = self.tail = None
-#         self.len = 0
+# if __name__ == "__main__":
+#     ...
 
-
-
-# __len__
-
-# insert
