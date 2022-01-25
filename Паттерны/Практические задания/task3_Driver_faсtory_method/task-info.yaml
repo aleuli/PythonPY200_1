@@ -4,29 +4,29 @@ files:
   visible: true
   placeholders:
   - offset: 94
-    length: 106
+    length: 36
     placeholder_text: '# TODO Реализовать абстрактный класс'
     initial_state:
       length: 36
       offset: 94
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: |-
       class DriverFactoryMethod(ABC):
           @classmethod
           @abstractmethod
           def get_driver(cls) -> IStructureDriver:
               ...
-  - offset: 647
-    length: 37
+  - offset: 578
+    length: 63
     placeholder_text: '...  # TODO с помощью фабричного метода инциализировать драйвер'
     initial_state:
       length: 63
       offset: 578
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: SimpleFileFactoryMethod.get_driver()
   text: |
     from abc import ABC, abstractmethod
@@ -115,8 +115,5 @@ files:
         read_data = driver.read()
         print(read_data)
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 19 Jan 2022 17:36:35 UTC
+status: Unchecked
 record: -1
