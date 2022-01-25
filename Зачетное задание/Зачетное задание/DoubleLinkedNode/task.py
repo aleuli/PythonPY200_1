@@ -48,8 +48,8 @@ class DoubleLinkedNode(Node):
     """
     Класс который описывает двойные связные узлы
     """
-    def __init__(self, value: Any, next_: Union[Optional["Node"], Optional["DoubleLinkedNode"]] = None,
-                 prev: Union[Optional["Node"], Optional["DoubleLinkedNode"]] = None):
+    def __init__(self, value: Any, next_: Optional["Node"] = None,
+                 prev: Optional["Node"] = None):
         """
 
         :param value: Любое значение которое наследуется от класса Node
@@ -69,7 +69,7 @@ class DoubleLinkedNode(Node):
         return self._prev
 
     @prev.setter
-    def prev(self, prev: Union[Optional["Node"], Optional["DoubleLinkedNode"]] = None) -> None:
+    def prev(self, prev: Optional["Node"] = None) -> None:
         print("вызван магический метод __setter__ из DoubleLinkedNode")
         self.is_valid_prev(prev)
         self._prev = prev
