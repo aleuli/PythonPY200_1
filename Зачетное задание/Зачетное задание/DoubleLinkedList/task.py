@@ -2,17 +2,19 @@ from collections.abc import MutableSequence
 
 from typing import Any, Iterable, Optional
 
-from node import Node
+from node import Node, DoubleLinkedNode
 
 
 class LinkedList(MutableSequence):
 
+    CLASS_NODE = Node
+
     """ Конструктор связного списка """
 
     def __init__(self, data: Iterable = None):
-        self.len = 0
-        self.head: Optional[Node] = None
-        self.tail = self.head
+        self._len = 0
+        self._head = None
+        self._tail = self._head
 
         if data is not None:
             for value in data:
@@ -20,14 +22,14 @@ class LinkedList(MutableSequence):
 
     def append(self, value: Any):
         """ Добавление элементов в конец связного списка """
-        append_node = Node(value)
-        if self.head is None:
-            self.head = self.tail = append_node
+        append_node = self.CLASS_NODE(value)
+        if self._head is None:
+            self._head = self._tail = append_node
         else:
-            self.linked_nodes(self.tail, append_node)
-            self.tail = append_node
+            self.linked_nodes(self._tail, append_node)
+            self._tail = append_node
 
-        self.len += 1
+        self._len += 1
 
     def step_by_step_on_nodes(self, index: int) -> Node:
 
@@ -36,10 +38,10 @@ class LinkedList(MutableSequence):
         if not isinstance(index, int):
             raise TypeError("Ошибка типа")
 
-        if not 0 <= index < self.len:
+        if not 0 <= index < self._len:
             raise IndexError("Ошибка индекса")
 
-        current_node = self.head
+        current_node = self._head
         for _ in range(index):
             current_node = current_node.next
 
@@ -74,12 +76,12 @@ class LinkedList(MutableSequence):
         if not isinstance(index, int):
             raise TypeError("Неправильный тип")
 
-        if not 0 <= index < self.len:
+        if not 0 <= index < self._len:
             raise IndexError("Неправильный индекс (граница)")
 
         if index == 0:
-            self.head = self.head.next
-        elif index == self.len - 1:
+            self._head = self._head.next
+        elif index == self._len - 1:
             tail = self.step_by_step_on_nodes(index - 1)
             tail.next = None
         else:
@@ -89,7 +91,7 @@ class LinkedList(MutableSequence):
 
             self.linked_nodes(prev_node, next_node)
 
-        self.len -= 1
+        self._len -= 1
 
     def to_list(self) -> list:
         return [linked_list_value for linked_list_value in self]
@@ -110,7 +112,7 @@ class LinkedList(MutableSequence):
 
         """ Возвращает количество элементов """
 
-        return self.len
+        return self._len
 
     def insert(self, index: int, value: Any) -> None:
 
@@ -124,45 +126,58 @@ class LinkedList(MutableSequence):
         if index < 0:
             raise IndexError
 
-        if index > self.len:
+        if index >= self._len:
             self.append(value)
 
-        if 0 <= index < self.len:
-            append_node = Node(value)
+        if 0 < index < self._len:
+            insert_node = Node(value)
+            current_node = self.step_by_step_on_nodes(index - 1)
+            next_node = current_node.next
+            self.linked_nodes(insert_node, next_node)
+            self.linked_nodes(current_node, insert_node)
+            self._len += 1
+
+        if index == 0:
+            insert_node = Node(value)
             current_node = self.step_by_step_on_nodes(index)
-            self.linked_nodes(append_node, current_node)
+            next_node = current_node.next
+            self.linked_nodes(current_node, next_node)
+            self.linked_nodes(current_node, insert_node)
+            self.linked_nodes(insert_node, next_node)
+            self._len += 1
+            ...
 
 
-if __name__ == '__main__':
-
-    list_ = [1, 2, 3]
-    linked_list = LinkedList(list_)
-    print(linked_list)
-
-    linked_list.insert(0, 0)
-    print(linked_list)
-
-    linked_list.insert(len(linked_list), len(linked_list))
-    print(linked_list)
-
-    # linked_list.insert(100, 100)
-    # print(linked_list)
-    #
-    # linked_list.insert(2, "wow")
-    # print(linked_list)
-    # print(linked_list[2] == "wow")
+        """ Получается дабы не потерять связь , мы должны : 
+        1) связать еденицу с двойкой 
+        2)связать 0 с еденицей
+        
+        """
 
 
+class DoubleLinkedList(LinkedList):
+
+    CLASS_NODE = DoubleLinkedNode
+
+    """ Конструктор двухсвязного списка """
+
+    def __init__(self, data: Iterable, prev: Optional["DoubleLinkedNode"]):
+        super().__init__(data)
+        self.prev = prev
+
+    @staticmethod
+    def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional["DoubleLinkedNode"] = None) -> DoubleLinkedNode:
+        """
+        Функция которая связывает между собой три узла
+
+        :param left_node: Левый или предыдущий узел
+        :param right_node: Правый или следующий узел
+        """
+        left_node.next = right_node
+        right_node.prev = left_node
 
 
 
-
-
-#
-# class DoubleLinkedList(LinkedList):
-#     ...
-#
-#
-# if __name__ == "__main__":
-#     ...
+if __name__ == "__main__":
+    ...
 

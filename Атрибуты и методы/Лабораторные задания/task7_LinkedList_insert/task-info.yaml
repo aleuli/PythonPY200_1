@@ -3,8 +3,8 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 2963
-    length: 522
+  - offset: 2951
+    length: 460
     placeholder_text: '...  # TODO реализовать алгоритм вставки элемента'
     initial_state:
       length: 49

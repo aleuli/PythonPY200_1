@@ -31,7 +31,7 @@ class Node:
     @staticmethod
     def is_valid(node: Optional["Node"]) -> None:
         if not isinstance(node, (Node, type(None))):
-            raise TypeError
+            raise TypeError("узел должен быть либо None, либо Node")
 
     @property
     def next(self):
@@ -62,7 +62,7 @@ class DoubleLinkedNode(Node):
     @staticmethod
     def is_valid_prev(doublelinkednode: Optional["DoubleLinkedNode"]) -> None:
         if not isinstance(doublelinkednode, (type(None), DoubleLinkedNode)):
-            raise TypeError
+            raise TypeError("узел должен быть либо None, либо DoubleLinkedNode")
 
     @property
     def prev(self):
@@ -79,7 +79,7 @@ class DoubleLinkedNode(Node):
             else f"{self.__class__.__name__}({self.next})"
         prev = str(None) if self.prev is None \
             else f"{self.__class__.__name__}({self.prev})"
-        return f"{self.__class__.__name__}({self.value}, {next_}, {prev})"
+        return f"{self.__class__.__name__}(DoubleLinkedNode({self.value}), {next_}, {prev})"
 
 
 if __name__ == "__main__":
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     first_node.next = second_node
     last_node = Node(3)
     second_node.next = last_node
-    print(repr(first_node), repr(first_node.next), repr(last_node))
+    print(repr(first_node), repr(second_node), repr(last_node))
 
     a = DoubleLinkedNode(1)
     b = DoubleLinkedNode(2)

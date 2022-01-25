@@ -30,8 +30,7 @@ class LinkedList:
     def __len__(self):
         return self.len
 
-    @staticmethod
-    def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
+    def linked_nodes(self, left_node: Node, right_node: Optional[Node] = None) -> None:
         """
         Функция, которая связывает между собой два узла.
 
@@ -107,18 +106,16 @@ class LinkedList:
         if index < 0:
             raise IndexError
 
-        if index > self.len:
+        if index >= self.len:
             self.append(value)
 
-        if 0 <= index < self.len:
-            # append_node = Node(value)
-            # print(append_node)
-            # current_node = self.step_by_step_on_nodes(index)
-            # print(current_node)
-            # self.linked_nodes(append_node, current_node)
-            self.head = self.step_by_step_on_nodes(index)
-            tail =
+        if 0 < index < self.len:
+            insert_node = Node(value)
+            current_node = self.step_by_step_on_nodes(index - 1)
+            self.linked_nodes(insert_node, current_node.next)
+            self.linked_nodes(current_node, insert_node)
 
+        self.len += 1
 
 if __name__ == '__main__':
 
@@ -126,15 +123,15 @@ if __name__ == '__main__':
     linked_list = LinkedList(list_)
     print(linked_list)
 
-    linked_list.insert(0, 0)
-    print(linked_list)
-
+    # linked_list.insert(0, 0)
+    # print(linked_list)
+    #
     linked_list.insert(len(linked_list), len(linked_list))
     print(linked_list)
 
-    # linked_list.insert(100, 100)
-    # print(linked_list)
-    #
-    # linked_list.insert(2, "wow")
-    # print(linked_list)
-    # print(linked_list[2] == "wow")
+    linked_list.insert(100, 100)
+    print(linked_list)
+
+    linked_list.insert(2, "wow")
+    print(linked_list)
+    print(linked_list[2] == "wow")
