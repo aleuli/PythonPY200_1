@@ -57,7 +57,7 @@ class DoubleLinkedNode(Node):
 
         """
         super().__init__(value, next_)
-        self.prev = prev
+        self.prev = prev  # Вызовется setter , обращение к свойству.
 
     @staticmethod
     def is_valid_prev(doublelinkednode: Optional["DoubleLinkedNode"]) -> None:
