@@ -1,6 +1,6 @@
 from collections.abc import MutableSequence
 
-from typing import Any, Iterable, Optional
+from typing import Any, Iterable, Optional, Iterator
 
 from node import Node, DoubleLinkedNode
 
@@ -60,6 +60,7 @@ class LinkedList(MutableSequence):
 
         """ Метод возвращает значение узла по указанному индексу """
 
+        print("Вызван метод \"__getitem__\"")
         node = self.step_by_step_on_nodes(index)
         return node.value
 
@@ -114,6 +115,24 @@ class LinkedList(MutableSequence):
 
         return self._len
 
+    def nodes_iterator(self) -> Iterator[Node]:
+        """ Генератор для прохода по всем узлам """
+        current_node = self._head
+        for _ in range(self._len):
+            yield current_node
+        current_node = current_node.next
+
+    def __iter__(self) -> Iterator[Any]:
+        """ Метод возвращает узел по которому итерировался """
+        return self.nodes_iterator()
+
+    def __contains__(self, item) -> bool:
+        """ Метод проверяет вхождение обьекта в последовательность"""
+        for node in self.nodes_iterator():
+            if node.value == item:
+                return True
+        return False
+
     def insert(self, index: int, value: Any) -> None:
 
         """ Добавляет значение в список по указанному индексу """
@@ -138,14 +157,15 @@ class LinkedList(MutableSequence):
             self._len += 1
 
         if index == 0:
-            insert_node = Node(value)
-            current_node = self.step_by_step_on_nodes(index)
-            next_node = current_node.next
-            self.linked_nodes(current_node, next_node)
-            self.linked_nodes(current_node, insert_node)
-            self.linked_nodes(insert_node, next_node)
-            self._len += 1
-            ...
+            # head = Node(value)
+            # current_nodes = self.step_by_step_on_nodes(index)
+            # tail = current_nodes.next
+            # self.linked_nodes(head, current_nodes)
+            # self.linked_nodes(head, tail)
+            # self.linked_nodes(tail, head)
+            # self._len += 1
+
+
 
 
         """ Получается дабы не потерять связь , мы должны : 
@@ -177,7 +197,13 @@ class DoubleLinkedList(LinkedList):
         right_node.prev = left_node
 
 
-
 if __name__ == "__main__":
+
+    list_ = [1, 2, 3]
+    linked_list = LinkedList(list_)
+    print(linked_list)
+
+    linked_list.insert(0, 0)
+    print(linked_list)
     ...
 

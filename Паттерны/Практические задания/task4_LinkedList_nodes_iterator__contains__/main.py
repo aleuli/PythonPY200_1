@@ -70,7 +70,7 @@ class LinkedList:
     def __str__(self) -> str:
         return f"{self.to_list()}"
 
-    def _nodes_iterator(self) -> Iterator[Node]:
+    def nodes_iterator(self) -> Iterator[Node]:
         current_node = self.head
         for _ in range(self.len):
             yield current_node
@@ -78,7 +78,7 @@ class LinkedList:
 
     def __contains__(self, item) -> bool:
         print("Вызван метод \"__contains__\"")
-        for node in self._nodes_iterator():
+        for node in self.nodes_iterator():
             if node.value == item:
                 return True
         return False

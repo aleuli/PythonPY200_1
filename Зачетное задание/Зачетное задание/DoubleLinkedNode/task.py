@@ -1,29 +1,27 @@
-from typing import Any, Optional
+from typing import Any
+from typing import Optional
 
 
 class Node:
-    """ Класс, который описывает узел связного списка. """
+    """Класс, который описывает узел связного списка."""
+
     def __init__(self, value: Any, next_: Optional["Node"] = None):
         """
 
-        :param value: Любое значение которое помещено в узел
-        :param next_: следующий узел , если он есть
+        :param value: Любое значение которое помещено в узел.
+        :param next_: Cледующий узел , если он есть.
+
         """
         self.value = value
-        self.next = next_  # вызовется setter , обращение к свойству
+        self.next = next_  # Вызовется setter , обращение к свойству.
 
     def __str__(self) -> str:
-        """
+        """Метод возвращает человекочитаемую строку."""
 
-        :return: возвращаем читабельную строку
-        """
         return str(self.value)
 
     def __repr__(self) -> str:
-        """
-
-        :return: возвращает "cырые" данные для внутреннего представления
-        """
+        """Метод возвращает "cырые" данные для внутреннего представления."""
 
         return f"Node({self.value}, {None})" if {self.next} is None \
             else f"Node(Node({self.value}), Node({self.next}))"
@@ -31,30 +29,32 @@ class Node:
     @staticmethod
     def is_valid(node: Optional["Node"]) -> None:
         if not isinstance(node, (Node, type(None))):
-            raise TypeError("узел должен быть либо None, либо Node")
+            raise TypeError("Ошибка типа - is_valid.")
 
     @property
     def next(self):
+        """Getter."""
+
         return self._next
 
     @next.setter
     def next(self, next_: Optional["Node"] = None) -> None:
-        print("вызван магический метод __setter__")
+        """Setter."""
+
         self.is_valid(next_)
         self._next = next_
 
 
 class DoubleLinkedNode(Node):
-    """
-    Класс который описывает двойные связные узлы
-    """
-    def __init__(self, value: Any, next_: Optional["Node"] = None,
-                 prev: Optional["Node"] = None):
+    """Класс который описывает двойной связный узел."""
+
+    def __init__(self, value: Any, next_: Node = None, prev: Optional["DoubleLinkedNode"] = None):
         """
 
         :param value: Любое значение которое наследуется от класса Node
         :param next_: следующй узел наследуемый от класса Node
         :param prev: Предыдущий узел , если он есть
+
         """
         super().__init__(value, next_)
         self.prev = prev
@@ -62,19 +62,24 @@ class DoubleLinkedNode(Node):
     @staticmethod
     def is_valid_prev(doublelinkednode: Optional["DoubleLinkedNode"]) -> None:
         if not isinstance(doublelinkednode, (type(None), DoubleLinkedNode)):
-            raise TypeError("узел должен быть либо None, либо DoubleLinkedNode")
+            raise TypeError("Ошибка типа - Is_valid_prev.")
 
     @property
     def prev(self):
+        """Getter."""
+
         return self._prev
 
     @prev.setter
-    def prev(self, prev: Optional["Node"] = None) -> None:
-        print("вызван магический метод __setter__ из DoubleLinkedNode")
+    def prev(self, prev: Optional["DoubleLinkedNode"] = None) -> None:
+        """Setter."""
+
         self.is_valid_prev(prev)
         self._prev = prev
 
     def __repr__(self) -> str:
+        """Метод возвращает "cырые" данные для внутреннего представления."""
+
         next_ = str(None) if self.next is None \
             else f"{self.__class__.__name__}({self.next})"
         prev = str(None) if self.prev is None \
