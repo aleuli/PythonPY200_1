@@ -9,7 +9,7 @@ class LinkedList(MutableSequence):
 
     CLASS_NODE = Node
 
-    """ Конструктор связного списка """
+    """Конструктор связного списка."""
 
     def __init__(self, data: Iterable = None):
         self._len = 0
@@ -21,7 +21,8 @@ class LinkedList(MutableSequence):
                 self.append(value)
 
     def append(self, value: Any):
-        """ Добавление элементов в конец связного списка """
+        """Добавление элементов в конец связного списка."""
+
         append_node = self.CLASS_NODE(value)
         if self._head is None:
             self._head = self._tail = append_node
@@ -32,14 +33,13 @@ class LinkedList(MutableSequence):
         self._len += 1
 
     def step_by_step_on_nodes(self, index: int) -> Node:
-
-        """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
+        """Функция выполняет перемещение по узлам до указанного индекса.И возвращает узел."""
 
         if not isinstance(index, int):
-            raise TypeError("Ошибка типа")
+            raise TypeError("Ошибка типа.")
 
         if not 0 <= index < self._len:
-            raise IndexError("Ошибка индекса")
+            raise IndexError("Ошибка индекса.")
 
         current_node = self._head
         for _ in range(index):
@@ -49,36 +49,34 @@ class LinkedList(MutableSequence):
 
     @staticmethod
     def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
-        """
-        Функция которая связывает между собой два узла
+        """Функция которая связывает между собой два узла.
+
         :param left_node: Левый или предыдущий узел
         :param right_node: Правый или следующий узел
+
         """
         left_node.next = right_node
 
     def __getitem__(self, index: int) -> Any:
+        """Метод возвращает значение узла по указанному индексу."""
 
-        """ Метод возвращает значение узла по указанному индексу """
-
-        print("Вызван метод \"__getitem__\"")
         node = self.step_by_step_on_nodes(index)
         return node.value
 
     def __setitem__(self, index: int, value: Any) -> None:
+        """Метод устанавливает значение узла по указанному индексу."""
 
-        """ Метод устанавливает значение узла по указанному индексу """
         node = self.step_by_step_on_nodes(index)
         node.value = value
 
     def __delitem__(self, index: int) -> None:
-
-        """ Удаление элементов по ключу """
+        """Удаление элементов по ключу."""
 
         if not isinstance(index, int):
-            raise TypeError("Неправильный тип")
+            raise TypeError("Неправильный тип.")
 
         if not 0 <= index < self._len:
-            raise IndexError("Неправильный индекс (граница)")
+            raise IndexError("Неправильный индекс(граница).")
 
         if index == 0:
             self._head = self._head.next
@@ -89,55 +87,68 @@ class LinkedList(MutableSequence):
             prev_node = self.step_by_step_on_nodes(index - 1)
             del_node = prev_node.next
             next_node = del_node.next
-
             self.linked_nodes(prev_node, next_node)
-
         self._len -= 1
 
     def to_list(self) -> list:
         return [linked_list_value for linked_list_value in self]
 
     def __str__(self) -> str:
-
-        """ Человекочитаемое представление обьекта """
+        """Человекочитаемое представление обьекта."""
 
         return f"{self.to_list()}"
 
     def __repr__(self) -> str:
-
-        """ Возврат представления обьекта """
+        """Возврат представления обьекта."""
 
         return f"{self.__class__.__name__}({self.to_list()})"
 
     def __len__(self):
-
-        """ Возвращает количество элементов """
+        """Возвращает количество элементов."""
 
         return self._len
 
     def nodes_iterator(self) -> Iterator[Node]:
-        """ Генератор для прохода по всем узлам """
+        """Генератор для прохода по всем узлам."""
+
         current_node = self._head
         for _ in range(self._len):
             yield current_node
-        current_node = current_node.next
+        current_node.next = current_node
 
     def __iter__(self) -> Iterator[Any]:
-        """ Метод возвращает узел по которому итерировался """
+        """Метод возвращает узел по которому итерировался."""
+
         return self.nodes_iterator()
 
     def __contains__(self, item) -> bool:
-        """ Метод проверяет вхождение обьекта в последовательность"""
+        """Метод проверяет вхождение обьекта в последовательность."""
+
         for node in self.nodes_iterator():
             if node.value == item:
                 return True
         return False
 
+    def __reversed__(self):
+        ...
+
+    def count(self, value: Any) -> int:
+        ...
+
+    def pop(self, index: int = ...):
+        ...
+
+    def extend(self, values: Iterable[...]) -> None:
+        ...
+
+    def remove(self, value: ...) -> None:
+        ...
+
+    def index(self, value: Any, start: int = ..., stop: int = ...) -> int:
+        ...
+
     def insert(self, index: int, value: Any) -> None:
-
-        """ Добавляет значение в список по указанному индексу """
-
-        print("Вызван метод insert")
+        """Добавляет значение в список по указанному индексу."""
 
         if not isinstance(index, int):
             raise TypeError
@@ -157,42 +168,36 @@ class LinkedList(MutableSequence):
             self._len += 1
 
         if index == 0:
-            # head = Node(value)
-            # current_nodes = self.step_by_step_on_nodes(index)
-            # tail = current_nodes.next
-            # self.linked_nodes(head, current_nodes)
+            pass
+            # head = self.step_by_step_on_nodes(index)
+            # tail = self.step_by_step_on_nodes(index + 1)
+            # append_node = Node(value)
+            # self.linked_nodes(append_node, head)
             # self.linked_nodes(head, tail)
-            # self.linked_nodes(tail, head)
+            # append_node = head
+            # tail.next = tail
+            # self.linked_nodes(append_node, tail)
             # self._len += 1
-
-
-
-
-        """ Получается дабы не потерять связь , мы должны : 
-        1) связать еденицу с двойкой 
-        2)связать 0 с еденицей
-        
-        """
 
 
 class DoubleLinkedList(LinkedList):
 
     CLASS_NODE = DoubleLinkedNode
 
-    """ Конструктор двухсвязного списка """
+    """Конструктор двухсвязного списка."""
 
     def __init__(self, data: Iterable, prev: Optional["DoubleLinkedNode"]):
         super().__init__(data)
         self.prev = prev
 
     @staticmethod
-    def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional["DoubleLinkedNode"] = None) -> DoubleLinkedNode:
-        """
-        Функция которая связывает между собой три узла
+    def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional["DoubleLinkedNode"] = None) -> None:
+        """Функция которая связывает между собой три узла.
 
         :param left_node: Левый или предыдущий узел
         :param right_node: Правый или следующий узел
         """
+
         left_node.next = right_node
         right_node.prev = left_node
 
@@ -206,4 +211,3 @@ if __name__ == "__main__":
     linked_list.insert(0, 0)
     print(linked_list)
     ...
-

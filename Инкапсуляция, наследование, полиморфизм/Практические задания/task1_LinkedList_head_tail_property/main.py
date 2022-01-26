@@ -27,7 +27,6 @@ class LinkedList:
     def tail(self):
         return self._tail
 
-
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
         append_node = Node(value)
