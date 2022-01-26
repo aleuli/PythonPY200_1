@@ -14,7 +14,7 @@ files:
     status: Unchecked
     encrypted_possible_answer: self.tail = self.head
   - offset: 531
-    length: 37
+    length: 35
     placeholder_text: 'self.head = append_node  # TODO добавить использование self.tail'
     initial_state:
       length: 64
@@ -23,7 +23,7 @@ files:
     selected: true
     status: Unchecked
     encrypted_possible_answer: self.head = self.tail = append_node
-  - offset: 582
+  - offset: 580
     length: 90
     placeholder_text: |-
       last_index = self.len - 1  # TODO Переделать через атрибут tail
@@ -39,7 +39,7 @@ files:
     encrypted_possible_answer: |-
       self.linked_nodes(self.tail, append_node)
                   self.tail = append_node
-  - offset: 1436
+  - offset: 1434
     length: 27
     placeholder_text: 'left_node.set_next(right_node)  # TODO next теперь свойство
       имеет setter, используйте это'

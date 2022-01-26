@@ -19,7 +19,7 @@ class LinkedList:
         append_node = Node(value)
 
         if self.head is None:
-            self.head = self.tail = append_node  
+            self.head = self.tail = append_node
         else:
             self.linked_nodes(self.tail, append_node)
             self.tail = append_node

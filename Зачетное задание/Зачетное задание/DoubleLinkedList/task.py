@@ -108,44 +108,44 @@ class LinkedList(MutableSequence):
 
         return self._len
 
-    def nodes_iterator(self) -> Iterator[Node]:
-        """Генератор для прохода по всем узлам."""
-
-        current_node = self._head
-        for _ in range(self._len):
-            yield current_node
-        current_node.next = current_node
-
-    def __iter__(self) -> Iterator[Any]:
-        """Метод возвращает узел по которому итерировался."""
-
-        return self.nodes_iterator()
-
-    def __contains__(self, item) -> bool:
-        """Метод проверяет вхождение обьекта в последовательность."""
-
-        for node in self.nodes_iterator():
-            if node.value == item:
-                return True
-        return False
-
-    def __reversed__(self):
-        ...
-
-    def count(self, value: Any) -> int:
-        ...
-
-    def pop(self, index: int = ...):
-        ...
-
-    def extend(self, values: Iterable[...]) -> None:
-        ...
-
-    def remove(self, value: ...) -> None:
-        ...
-
-    def index(self, value: Any, start: int = ..., stop: int = ...) -> int:
-        ...
+    # def nodes_iterator(self) -> Iterator[Node]:
+    #     """Генератор для прохода по всем узлам."""
+    #
+    #     current_node = self._head
+    #     for _ in range(self._len):
+    #         yield current_node
+    #     current_node.next = current_node
+    #
+    # def __iter__(self) -> Iterator[Any]:
+    #     """Метод возвращает узел по которому итерировался."""
+    #
+    #     return self.nodes_iterator()
+    #
+    # def __contains__(self, item) -> bool:
+    #     """Метод проверяет вхождение обьекта в последовательность."""
+    #
+    #     for node in self.nodes_iterator():
+    #         if node.value == item:
+    #             return True
+    #     return False
+    #
+    # def __reversed__(self):
+    #     ...
+    #
+    # def count(self, value: Any) -> int:
+    #     ...
+    #
+    # def pop(self, index: int = ...):
+    #     ...
+    #
+    # def extend(self, values: Iterable[...]) -> None:
+    #     ...
+    #
+    # def remove(self, value: ...) -> None:
+    #     ...
+    #
+    # def index(self, value: Any, start: int = ..., stop: int = ...) -> int:
+    #     ...
 
     def insert(self, index: int, value: Any) -> None:
         """Добавляет значение в список по указанному индексу."""
@@ -168,16 +168,14 @@ class LinkedList(MutableSequence):
             self._len += 1
 
         if index == 0:
-            pass
-            # head = self.step_by_step_on_nodes(index)
-            # tail = self.step_by_step_on_nodes(index + 1)
-            # append_node = Node(value)
-            # self.linked_nodes(append_node, head)
-            # self.linked_nodes(head, tail)
-            # append_node = head
-            # tail.next = tail
-            # self.linked_nodes(append_node, tail)
-            # self._len += 1
+            insert_node = Node(value)
+            insert_node.next = self._head
+            self._head.prev = insert_node
+            self._head = insert_node
+            # insert_node = Node(value)
+            # insert_node.next = self._head
+            # self._head = insert_node
+            self._len += 1
 
 
 class DoubleLinkedList(LinkedList):
