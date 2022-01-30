@@ -26,9 +26,9 @@ class Node:
         return f"Node({self.value}, {None})" if {self.next} is None \
             else f"Node(Node({self.value}), Node({self.next}))"
 
-    @staticmethod
-    def is_valid(node: Optional["Node"]) -> None:
-        if not isinstance(node, (Node, type(None))):
+    @classmethod
+    def is_valid(cls, node: Any) -> None:
+        if not isinstance(node, (cls, type(None))):
             raise TypeError("Ошибка типа - is_valid.")
 
     @property
@@ -46,7 +46,7 @@ class Node:
 
 
 class DoubleLinkedNode(Node):
-    """Класс который описывает двойной связный узел."""
+    """Класс который описывает связный узел."""
 
     def __init__(self, value: Any, next_: Node = None, prev: Optional["DoubleLinkedNode"] = None):
         """
@@ -59,11 +59,6 @@ class DoubleLinkedNode(Node):
         super().__init__(value, next_)
         self.prev = prev  # Вызовется setter , обращение к свойству.
 
-    @staticmethod
-    def is_valid_prev(doublelinkednode: Optional["DoubleLinkedNode"]) -> None:
-        if not isinstance(doublelinkednode, (type(None), DoubleLinkedNode)):
-            raise TypeError("Ошибка типа - Is_valid_prev.")
-
     @property
     def prev(self):
         """Getter."""
@@ -74,7 +69,7 @@ class DoubleLinkedNode(Node):
     def prev(self, prev: Optional["DoubleLinkedNode"] = None) -> None:
         """Setter."""
 
-        self.is_valid_prev(prev)
+        self.is_valid(prev)
         self._prev = prev
 
     def __repr__(self) -> str:

@@ -1,6 +1,6 @@
 from collections.abc import MutableSequence
 
-from typing import Any, Iterable, Optional, Iterator
+from typing import Any, Iterable, Optional
 
 from node import Node, DoubleLinkedNode
 
@@ -168,13 +168,13 @@ class LinkedList(MutableSequence):
             self._len += 1
 
         if index == 0:
-            insert_node = Node(value)
-            insert_node.next = self._head
-            self._head.prev = insert_node
-            self._head = insert_node
             # insert_node = Node(value)
             # insert_node.next = self._head
+            # self._head.prev = insert_node
             # self._head = insert_node
+            insert_node = Node(value)
+            insert_node.next = self._head
+            self._head = insert_node
             self._len += 1
 
 
@@ -206,6 +206,37 @@ if __name__ == "__main__":
     linked_list = LinkedList(list_)
     print(linked_list)
 
-    linked_list.insert(0, 0)
+    linked_list.append(100)  # метод append
     print(linked_list)
-    ...
+
+    print(linked_list.step_by_step_on_nodes(2))  # метод step_by_step_on_nodes
+
+    first_node = Node(1)
+    second_node = Node(2)
+    linked_list.linked_nodes(first_node, second_node)
+    print(repr(first_node), repr(second_node))  # метод linked_nodes
+
+    print(linked_list[2])  # метод getitem
+
+    linked_list[2] = 5
+    print(linked_list)  # метод setitem
+
+    del linked_list[2]
+    print(linked_list)  # метод del
+
+    print([link for link in linked_list])  # метод to_list
+
+    print(str(linked_list))  # метод str
+
+    print(repr(linked_list))  # метод repr
+
+    print(len(linked_list))  # метод len
+
+    linked_list.insert(2, 50)
+    print(linked_list)  # метод insert
+
+    double_first_node = DoubleLinkedNode(1)
+    double_second_node = DoubleLinkedNode(2)
+    double_first_node.next = double_second_node
+    double_second_node.prev = double_first_node
+    print(repr(double_first_node), repr(double_second_node))  # реализация двусвязного списка
