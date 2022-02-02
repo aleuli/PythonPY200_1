@@ -1,6 +1,6 @@
 from collections.abc import MutableSequence
 
-from typing import Any, Iterable, Optional, Iterator
+from typing import Any, Iterable, Optional
 
 from node import Node, DoubleLinkedNode
 
@@ -14,8 +14,6 @@ class LinkedList(MutableSequence):
         self._len = 0
         self._head = None
         self._tail = self._head
-        self._data = None
-        self.reverse = []
 
         if data is not None:
             for value in data:
@@ -79,7 +77,7 @@ class LinkedList(MutableSequence):
         if not 0 <= index < self._len:
             raise IndexError("Неправильный индекс(граница).")
 
-        if index == 0:
+        elif index == 0:
             self._head = self._head.next
         elif index == self._len - 1:
             tail = self.step_by_step_on_nodes(index - 1)
@@ -116,7 +114,7 @@ class LinkedList(MutableSequence):
             raise TypeError
 
         if index < 0:
-            raise IndexError
+            index = len(self) + index  # прибавляем отрицательный индекс
 
         if index >= self._len:
             self.append(value)
@@ -159,21 +157,19 @@ class LinkedList(MutableSequence):
     #             return True
     #     return False
 
-    # def __reversed__(self):
-    #     for i in range(self._data):
-    #         self.reverse.append(i)
-    #         print("вызван реверс")
-    #     return self.reverse
-    #
-    # def count(self, value: Any) -> int:
-    #     """Возвращает число равное количеству вхождений искомого числа в список."""
-    #
-    #     count = 0
-    #     print("вызван метод count")
-    #     for i in range(self._head, self._tail):
-    #         if value is i:
-    #             count += 1
-    #     return count
+    def __reversed__(self) -> Iterable[Any]:
+        for i in range(len(self)-1, -1, -1):
+            yield self[i]
+
+    def count(self, value: Any) -> int:
+        """Возвращает число равное количеству вхождений искомого числа в список."""
+
+        count = 0
+        print("вызван метод count")
+        for current_value in self:
+            if value is current_value:
+                count += 1
+        return count
     # #
     # def pop(self, index: int = ...):
     #     ...
@@ -188,14 +184,36 @@ class LinkedList(MutableSequence):
     #     ...
 
 
+class LinkedListRemove(LinkedList):
+    def remove(self, value: Any) -> None:
+        """Метод удаляет первый элемент из списка."""
+
+        # if self.head is not value:
+        #     raise ValueError
+
+        # self.head = Node(value)
+        # next_node = self.step_by_step_on_nodes(1)
+        # self.head = next_node
+        # self.linked_nodes(next_node, next_node.next)
+        # self.len -= 1
+
+        # del_node = Node(value)
+        # next_node = del_node.next
+        # self.head = next_node
+        # self.linked_nodes(self.head, next_node.next)
+        # self.len -= 1
+
+        self._head = value
+        next_node = self.step_by_step_on_nodes(1)
+        next_node.next = self.step_by_step_on_nodes(2)
+        # self.head = next_node
+        self.linked_nodes(next_node, next_node.next)
+        self._head = next_node
+        self._len -= 1
+
+
 class DoubleLinkedList(LinkedList):
     CLASS_NODE = DoubleLinkedNode
-
-    """Конструктор двухсвязного списка."""
-
-    def __init__(self, data: Iterable, prev: Optional["DoubleLinkedNode"]):
-        super().__init__(data)
-        self.prev = prev
 
     @staticmethod
     def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional["DoubleLinkedNode"] = None) -> None:
@@ -248,3 +266,7 @@ if __name__ == "__main__":
     double_first_node.next = double_second_node
     double_second_node.prev = double_first_node
     print(repr(double_first_node), repr(double_second_node))  # реализация двусвязного списка
+
+    remove_ = LinkedListRemove(list_)  # реализация метода remove
+    remove_.remove(1)
+    print(remove_)
