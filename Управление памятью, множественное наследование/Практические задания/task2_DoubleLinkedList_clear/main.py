@@ -12,12 +12,12 @@ class DoubleLinkedNode(Node):
 
     @property
     def prev(self):
-        return self._prev  # TODO объект теперь вызываемый
+        return None if self._prev is None else self._prev()  # TODO объект теперь вызываемый
 
     @prev.setter
     def prev(self, prev: Optional["Node"]):
         self.is_valid(prev)
-        self._prev = prev  # TODO сделать слабую ссылку
+        self._prev = None if prev is None else weakref.ref(prev)  # TODO сделать слабую ссылку
 
     def __repr__(self) -> str:
         next_prev = None if self.prev is None else f"DoubleLinkedNode({self.prev})"
@@ -43,6 +43,11 @@ class DoubleLinkedList(LinkedList):
             self.tail = append_node
 
         self.len += 1
+
+    def __del__(self):
+        for node in self.nodes_iterator():
+            node.prev = None
+            super().clear()
 
 
 if __name__ == "__main__":

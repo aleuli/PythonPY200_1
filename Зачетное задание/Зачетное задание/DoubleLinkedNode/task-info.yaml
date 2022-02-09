@@ -48,5 +48,8 @@ files:
             # todo test set next
             ...
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 20 Jan 2022 16:12:12 UTC
 record: -1

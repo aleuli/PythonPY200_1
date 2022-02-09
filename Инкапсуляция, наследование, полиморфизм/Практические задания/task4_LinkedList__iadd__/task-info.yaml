@@ -20,13 +20,13 @@ files:
               if not isinstance(other, (LinkedList, list)):
                   raise TypeError
   - offset: 2444
-    length: 44
+    length: 110
     placeholder_text: '... # TODO определить метод для оператора +='
     initial_state:
       length: 44
       offset: 2444
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: |-
       if not isinstance(other, (LinkedList, list)):

@@ -1,16 +1,19 @@
 type: theory
 files:
+- name: __init__.py
+  visible: false
+  learner_created: false
 - name: main.py
   visible: true
   placeholders:
-  - offset: 144
-    length: 40
+  - offset: 292
+    length: 85
     placeholder_text: '#  TODO инициализировать объект "Стакан"'
     initial_state:
-      length: 40
-      offset: 144
+      length: 85
+      offset: 292
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: |-
       if not isinstance(capacity_volume, (int, float)):
@@ -24,26 +27,26 @@ files:
               if occupied_volume < 0:
                   raise ValueError
               self.occupied_volume = occupied_volume  # объем жидкости в стакане
-  - offset: 218
-    length: 51
+  - offset: 411
+    length: 55
     placeholder_text: '...  # TODO инициализировать два объекта типа Glass'
     initial_state:
-      length: 51
-      offset: 218
+      length: 55
+      offset: 411
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: |-
       glass1 = Glass(200, 100)  # экземпляр класса
           glass2 = Glass(500, 50)  # экземпляр класса
-  - offset: 275
-    length: 57
+  - offset: 472
+    length: 133
     placeholder_text: '# TODO попробовать инициализировать не корректные объекты'
     initial_state:
-      length: 57
-      offset: 275
+      length: 133
+      offset: 472
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: |-
       incorrect_capacity_volume_type = ...
@@ -61,9 +64,6 @@ files:
         ...  # TODO инициализировать два объекта типа Glass
 
         # TODO попробовать инициализировать не корректные объекты
-  learner_created: false
-- name: __init__.py
-  visible: false
   learner_created: false
 status: Solved
 record: -1
